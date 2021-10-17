@@ -1,0 +1,111 @@
+# for colored words!!
+def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
+def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
+def inGreen(skk): input("\033[92m {}\033[00m" .format(skk))
+def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
+def inYellow(skk): input("\033[93m {}\033[00m" .format(skk))
+def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk))
+def prPurple(skk): print("\033[95m {}\033[00m" .format(skk))
+def inPurple(skk): input("\033[95m {}\033[00m" .format(skk))
+def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
+def prLightGray(skk): print("\033[97m {}\033[00m" .format(skk))
+def prBlack(skk): print("\033[98m {}\033[00m" .format(skk))
+def prBlue(skk): print("\u001b[34m {}\033[00m" .format(skk))
+def inBlue(skk): input("\u001b[34m {}\033[00m" .format(skk))
+def inBlack(skk): input("\033[98m {}\033[00m" .format(skk))
+def inCyan(skk): input("\033[96m {}\033[00m" .format(skk))
+
+#start of journey 
+input("Welcome to Escape from Hallow World! \nPress enter to get started.")
+print("\n")
+input("Thunder clashes overhead as you run through the dark corridors of Hogwarts.\nThe sound of Death Eaters behind you echos off the walls. You try to run faster. (enter)\n")
+print("\n")
+input("As your feet hit the floor you hear a splash and look down. Water.\nYou look up to see it streaming through the open door of the hall bathroom. (enter)\n")
+print("\n")
+input("A shiver goes down your back and you look to see a trail of tiny black spiders crawling across the wall.\nYou notice that they lead down the steps to the dungeons. (enter)\n")
+print("\n")
+print("You hear the Death Eaters gaining on you. You panic, trying to find a place to hide.")
+user_hiding_place = input("Type 1 to run and hide in the flooded bathroom.\nType 2 to follow the spiders down the dungeons.\n")
+#option 1
+if user_hiding_place == '1':
+      print("Water soaks your robes as sprint into the bathroom. You notice that the flooding is being caused by a broken sink.")
+      sink_choice = input("Do you inspect the sink or move on? (y or n) ")
+      if sink_choice == 'y':
+           print("You walk closer to the sink and look at the cracked mirror above it. You note you look awful🧍 and move on.")
+      if sink_choice == 'n':  
+           print("You continue to trudge through the water.")
+      print("You hear the Death Eaters right outside the bathroom and run into a stall to hide.\n")
+      print("\n")
+      input("You look at the item in your hand. You need to deliver the last Horcrux to Harry, Ron and Hermione. (enter)")
+      print("Seeing a hole in the wall, you crawl through and ")
+      prPurple("✨magically✨")
+      print("end up in the Room of Requirement. The door slams behind you!")
+
+#option 2
+if user_hiding_place == '2':
+    light_spell = inBlack("The darkness is thick, so you pull out your wand and cast the lumos spell to light your way. (click l to cast the spell)\n")
+    inYellow("You can now ✨see✨ (enter)\n")
+    inYellow("You look at the item in your hand. You need to deliver the last Horcrux to Harry, Ron and Hermione. (enter)\n")
+    inYellow("Following the trail of spiders, you come to the door of the Room of Requirement. (enter)\n")
+    inYellow("Hearing the Death Eaters on your tail, you shut the door quickly behind you.")
+
+#asks for user's name
+userName = input("You take a breath and look around.\nYour name is... ")
+
+#gets user's house
+print("You look down at your robes and see the insignia of")
+prRed("\tGryffindor🦁: the Brave")
+prBlue("\tRavenclaw🦉: the Wise")
+prYellow("\tHufflepuff🦡: the Loyal")
+prGreen("\tSlytherin🐍: the Cunning")
+userHouse = input("\t(type in a house) ")
+youwrong = True
+while youwrong == True:
+    if userHouse.lower()  == "gryffindor":
+         prRed("...Gryffindor barely clinging to your shredded robes. ")
+         youwrong = False
+    if userHouse.lower()  == "ravenclaw":
+         prBlue("...Ravenclaw barely clinging to your shredded robes. ")
+         youwrong = False
+    if userHouse.lower()  == "hufflepuff":
+         prYellow("...Hufflepuff barely clinging to your shredded robes. ")
+         youwrong = False
+    if userHouse.lower()  == "slytherin":
+         prGreen("...Slytherin barely clinging to your shredded robes. ")
+         youwrong = False
+    if (userHouse.lower() != "gryffindor") & (userHouse.lower() != "ravenclaw") & (userHouse.lower() != "hufflepuff") & (userHouse.lower() != "slytherin"):
+         print("That's not a recognized house of Hogwarts, unfortunately. ",end='')
+         userHouse = input("Choose a new house: ")
+         youwrong = True
+
+input("You look across the room to see a chalkboard. (enter)")
+prGreen("--------------------------------------------")
+prGreen("-   Collect all three keys to escape the   -")
+prGreen("-         Room of Requirement!!            -")
+prGreen("-    To do so you must complete 3 tasks.   -")
+prGreen("- Each task you will win you will recieve  -")
+prGreen("-                 a key.                   -")
+prGreen("--------------------------------------------")
+
+
+#start of room 1  
+from slyMiniGame import main
+main()
+prGreen("You have collected the first key!🗝")
+
+#start of room 2
+from ravenclawmini import main
+main()
+prBlue("You have collected the second key!🗝")
+
+#start of room 3
+from huffMiniGame import RPSgame
+RPSgame()
+prYellow("You have collected the final key!🗝")
+
+
+input("\nAs you twist the final key in the lock, the door swings open and Harry, Ron, and Hermione are staring back at you. You shove Rowena's tiara into their \nhands, and they thank you for your aid. (enter)") 
+print("\n")
+print("The battle is far from over, but you know you are now one step closer to defeating Voldemort once and for all.")
+prLightPurple("Congratulations, you have escaped!")
+print("\n")
